@@ -1,7 +1,58 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Demo',
+      home: MyFirstWidget()
+    );
+  }
+}
+
+// class MyFirstWidget extends StatelessWidget {
+//   static int _counter = 0;
+//   @override
+//   Widget build(BuildContext context) {
+//     ++_counter;
+//     print(_counter);
+//     return Container(
+//       child: Center(
+//         child: Text('Hello!'),
+//       ),
+//     );
+//   }
+//
+//   Type getRunTypeType() {
+//     return context.runtimeType;
+//   }
+// }
+
+class MyFirstWidget extends StatefulWidget {
+  const MyFirstWidget({Key? key}) : super(key: key);
+  @override
+  _MyFirstWidgetState createState() => _MyFirstWidgetState();
+}
+
+class _MyFirstWidgetState extends State<MyFirstWidget> {
+  int _counter = 0;
+  @override
+  Widget build(BuildContext context) {
+    ++_counter;
+    print(_counter);
+    return Container(
+      child: Center(
+        child: Text('Hello!'),
+      ),
+    );
+    Type getRunTypeType() {
+      return context.runtimeType;
+    }
+  }
 }
 
 class MyApp extends StatelessWidget {
