@@ -16,19 +16,19 @@ class App extends StatelessWidget {
 
 // class MyFirstWidget extends StatelessWidget {
 //   static int _counter = 0;
+//   Type getRunTypeType(context) {
+//     return context.runtimeType;
+//   }
 //   @override
 //   Widget build(BuildContext context) {
 //     ++_counter;
 //     print(_counter);
+//     print(getRunTypeType(context));
 //     return Container(
 //       child: Center(
 //         child: Text('Hello!'),
 //       ),
 //     );
-//   }
-//
-//   Type getRunTypeType() {
-//     return context.runtimeType;
 //   }
 // }
 
@@ -40,20 +40,23 @@ class MyFirstWidget extends StatefulWidget {
 
 class _MyFirstWidgetState extends State<MyFirstWidget> {
   int _counter = 0;
+  Type getRunTypeType(context) {
+    return context.runtimeType;
+  }
   @override
   Widget build(BuildContext context) {
     ++_counter;
+    print(getRunTypeType(context));
     print(_counter);
     return Container(
       child: Center(
         child: Text('Hello!'),
       ),
     );
-    Type getRunTypeType() {
-      return context.runtimeType;
-    }
   }
 }
+
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
