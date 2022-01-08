@@ -76,7 +76,41 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyFirstWidget(),
+    );
+  }
+}
+
+// class MyFirstWidget extends StatefulWidget {
+//   const MyFirstWidget({Key? key}) : super(key: key);
+//   @override
+//   _MyFirstWidgetState createState() => _MyFirstWidgetState();
+// }
+//
+// class _MyFirstWidgetState extends State<MyFirstWidget> {
+//   int _counter = 0;
+//   @override
+//   Widget build(BuildContext context) {
+//     ++_counter;
+//     print(_counter);
+//     return Container(
+//       child: Center(
+//         child: Text('Hello!'),
+//       ),
+//     );
+//   }
+// }
+
+class MyFirstWidget extends StatelessWidget {
+  int _counter = 0;
+  @override
+  Widget build(BuildContext context) {
+    ++_counter;
+    print(_counter);
+    return Container(
+      child: Center(
+        child: Text('Hello!'),
+      ),
     );
   }
 }
