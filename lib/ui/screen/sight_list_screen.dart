@@ -14,12 +14,56 @@ class _SightListScreenState extends State<SightListScreen> {
     return Scaffold (
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('Test title'),
+        toolbarHeight: 140,
+        title: RichText(
+          text: const TextSpan(
+            style: TextStyle(
+              color: Color.fromRGBO(37, 40, 73, 1),
+              fontSize: 32,
+              height: 1.1,
+              fontWeight: FontWeight.bold,
+            ),
+            children: [
+              TextSpan(
+                children: [
+                  TextSpan(
+                      text: 'С',
+                      style: TextStyle(
+                          color: Color.fromRGBO(76, 175, 80, 1),
+                      ),
+                  ),
+                  TextSpan(text: 'писок',),
+                ],
+              ),
+              TextSpan(
+                children: [
+                  TextSpan(
+                      text: '\nи',
+                      style: TextStyle(
+                        color: Color.fromRGBO(252, 221, 61, 1),
+                      ),
+                  ),
+                  TextSpan(text: 'нтересных дел',),
+                ],
+              ),
+            ],
+          ),
+          textAlign: TextAlign.left,
+          maxLines: 2,
+          // style: TextStyle(
+          //   color: Color.fromRGBO(37, 40, 73, 1),
+          //   fontSize: 32,
+          //   height: 1.1,
+          //   fontWeight: FontWeight.bold,
+          // ),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
       body: const Center(
-          child: Text('Hello!'),
+        child: Text('Hello!'),
       ),
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.white,
     );
   }
 }
