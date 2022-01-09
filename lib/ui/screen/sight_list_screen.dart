@@ -14,10 +14,10 @@ class _SightListScreenState extends State<SightListScreen> {
     return Scaffold (
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Test title'),
+        title: const Text('Test title'),
       ),
-      body: Center(
-          child: Text("Hello!"),
+      body: const Center(
+          child: Text('Hello!'),
       ),
       backgroundColor: Colors.green,
     );
