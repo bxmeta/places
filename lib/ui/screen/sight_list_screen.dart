@@ -16,9 +16,12 @@ class _SightListScreenState extends State<SightListScreen> {
       appBar: AppBar(
         title: const Text('Test title'),
       ),
-      body: Center(child: Text("Hello!")),
+      body: Center(
+          child: Text("Hello!"),
+      ),
       backgroundColor: Colors.green,
     );
   }
 }
+
 
