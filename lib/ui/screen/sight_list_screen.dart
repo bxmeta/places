@@ -8,10 +8,9 @@ class SightListScreen extends StatefulWidget {
 }
 
 class _SightListScreenState extends State<SightListScreen> {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold (
+    return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         toolbarHeight: 140,
@@ -27,29 +26,33 @@ class _SightListScreenState extends State<SightListScreen> {
               TextSpan(
                 children: [
                   TextSpan(
-                      text: 'С',
-                      style: TextStyle(
-                          color: Color.fromRGBO(76, 175, 80, 1),
-                      ),
+                    text: 'С',
+                    style: TextStyle(
+                      color: Color.fromRGBO(76, 175, 80, 1),
+                    ),
                   ),
-                  TextSpan(text: 'писок',),
+                  TextSpan(
+                    text: 'писок',
+                  ),
                 ],
               ),
               TextSpan(
                 children: [
                   TextSpan(
-                      text: '\nи',
-                      style: TextStyle(
-                        color: Color.fromRGBO(252, 221, 61, 1),
-                      ),
+                    text: '\nи',
+                    style: TextStyle(
+                      color: Color.fromRGBO(252, 221, 61, 1),
+                    ),
                   ),
-                  TextSpan(text: 'нтересных дел',),
+                  TextSpan(
+                    text: 'нтересных дел',
+                  ),
                 ],
               ),
             ],
           ),
           textAlign: TextAlign.left,
-          maxLines: 2,          
+          maxLines: 2,
         ),
         backgroundColor: Colors.white,
         elevation: 0,
