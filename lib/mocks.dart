@@ -23,7 +23,7 @@ final List<Sight> mocks = [
   ),
   Sight(
     name: 'Михаило-Архангельский кафедральный собор',
-    lat: 56.849690,
+    lat: 56.84969,
     lon: 53.205464,
     url:
     'https://avatars.mds.yandex.net/get-altay/1554359/2a0000016a7326ae6f05673f8ddc6786704d/L',
