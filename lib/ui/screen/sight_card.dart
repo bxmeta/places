@@ -3,6 +3,7 @@ import 'package:places/domain/sight.dart';
 
 class SightCard extends StatelessWidget {
   final Sight sight;
+
   const SightCard({Key? key, required this.sight}) : super(key: key);
 
   @override
@@ -15,7 +16,7 @@ class SightCard extends StatelessWidget {
           right: 16,
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
@@ -24,8 +25,8 @@ class SightCard extends StatelessWidget {
                   height: 96,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
-                        topLeft:  Radius.circular(16.0),
-                        topRight: Radius.circular(16.0),
+                      topLeft: Radius.circular(16.0),
+                      topRight: Radius.circular(16.0),
                     ),
                     image: DecorationImage(
                       image: Image.network(
@@ -59,41 +60,45 @@ class SightCard extends StatelessWidget {
               ],
             ),
             Container(
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
               decoration: const BoxDecoration(
-                color: Color.fromRGBO(245,245,245, 1),
+                color: Color.fromRGBO(245, 245, 245, 1),
                 borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(16.0),
-                    bottomRight: Radius.circular(16.0),
+                  bottomLeft: Radius.circular(16.0),
+                  bottomRight: Radius.circular(16.0),
                 ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    sight.name,
-                    maxLines: 2,
-                    style: const TextStyle(
-                      color: Color.fromRGBO(37, 40, 73, 1),
-                      fontSize: 16,
-                      height: 1.2,
-                      fontWeight: FontWeight.w600,
+              child:
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 16,
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 5),
-                    child: Text(
+                    Text(
+                      sight.name,
+                      maxLines: 2,
+                      style: const TextStyle(
+                        color: Color.fromRGBO(37, 40, 73, 1),
+                        fontSize: 16,
+                        height: 1.2,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Text(
                       sight.details,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
-                          color: Color.fromRGBO(124,126,146, 1),
-                          fontSize: 14,
+                        color: Color.fromRGBO(124, 126, 146, 1),
+                        fontSize: 14,
                       ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
             ),
           ],
         ),

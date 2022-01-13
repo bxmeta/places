@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/screen/sight_details.dart';
+import 'package:places/ui/screen/sight_list_screen.dart';
 
 void main() {
   runApp(const App());
@@ -13,7 +14,7 @@ class App extends StatelessWidget {
 
     return const MaterialApp(
       title: 'Demo',
-      home: SightDetails(),
+      home: SightListScreen(),
     );
   }
 }
