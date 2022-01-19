@@ -23,16 +23,33 @@ class SightCard extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   height: 96,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(16.0),
-                      topRight: Radius.circular(16.0),
-                    ),
-                    image: DecorationImage(
-                      image: Image.network(
-                        sight.url,
-                      ).image,
-                      fit: BoxFit.cover,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(16.0),
+                        topRight: Radius.circular(16.0),
+                      ),
+                      image: DecorationImage(
+                        image: Image.network(
+                          sight.url,
+                          loadingBuilder: (BuildContext context, Widget child,
+                              ImageChunkEvent? loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child;
+                            }
+                            return Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            );
+                          },
+                        ).image,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -68,37 +85,36 @@ class SightCard extends StatelessWidget {
                   bottomRight: Radius.circular(16.0),
                 ),
               ),
-              child:
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 16,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    sight.name,
+                    maxLines: 2,
+                    style: const TextStyle(
+                      color: Color.fromRGBO(37, 40, 73, 1),
+                      fontSize: 16,
+                      height: 1.2,
+                      fontWeight: FontWeight.w600,
                     ),
-                    Text(
-                      sight.name,
-                      maxLines: 2,
-                      style: const TextStyle(
-                        color: Color.fromRGBO(37, 40, 73, 1),
-                        fontSize: 16,
-                        height: 1.2,
-                        fontWeight: FontWeight.w600,
-                      ),
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Text(
+                    sight.details,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      color: Color.fromRGBO(124, 126, 146, 1),
+                      fontSize: 14,
                     ),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    Text(
-                      sight.details,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: Color.fromRGBO(124, 126, 146, 1),
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

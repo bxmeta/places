@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/app_strings.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
@@ -15,7 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Container(
         width: double.infinity,
         child: const Text(
-          'Список \nинтересных мест',
+          AppStrings.appTitle,
           textAlign: TextAlign.left,
           maxLines: 2,
           style: TextStyle(
