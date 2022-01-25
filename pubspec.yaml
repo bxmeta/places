@@ -9,12 +9,13 @@ environment:
   sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
 
+  cached_network_image: ^3.2.0
   cupertino_icons: ^1.0.2
   dart_code_metrics: ^4.8.1
-  flutter_svg: ^0.23.0+1
+  flutter:
+    sdk: flutter
+  flutter_svg: ^1.0.3
   google_fonts: ^2.1.0
   surf_lint_rules: ^1.4.1
 
@@ -25,7 +26,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - res/
+    - res/fonts/
+    - res/images/
   fonts:
     - family: Roboto
       fonts:
