@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/app_assets.dart';
+import 'package:places/ui/app_strings.dart';
 
-class SightCard extends StatelessWidget {
+class SightCardWantVisit extends StatelessWidget {
   final Sight sight;
 
-  const SightCard({Key? key, required this.sight}) : super(key: key);
+  const SightCardWantVisit({Key? key, required this.sight}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -66,18 +69,20 @@ class SightCard extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  right: 16,
+                  right: 63,
                   top: 16,
-                  child: Container(
-                    color: Colors.red,
-                    width: 20,
-                    height: 18,
-                  ),
+                  child: SvgPicture.asset(AppAssets.appIconCalendar, width: 24.0, height: 24.0, color: Colors.white),
+                ),
+                Positioned(
+                  right: 22,
+                  top: 16,
+                  child:  SvgPicture.asset(AppAssets.appIconHeart, width: 24.0, height: 24.0, color: Colors.white,),
                 ),
               ],
             ),
             Container(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+              width: double.infinity,
               decoration: const BoxDecoration(
                 color: Color.fromRGBO(245, 245, 245, 1),
                 borderRadius: BorderRadius.only(
@@ -101,14 +106,21 @@ class SightCard extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SizedBox(
-                    height: 2,
+                  const Text(
+                    AppStrings.appWantVisitTime,
+                    style: TextStyle(
+                      color: Color.fromRGBO(76, 175, 80, 1),
+                      fontSize: 14,
+                    ),
                   ),
-                  Text(
-                    sight.details,
-                    maxLines: 2,
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    AppStrings.appVisitedClose,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Color.fromRGBO(124, 126, 146, 1),
                       fontSize: 14,
                     ),

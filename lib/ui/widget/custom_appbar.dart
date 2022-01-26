@@ -3,6 +3,8 @@ import 'package:places/ui/app_strings.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
+  @override
+  Size get preferredSize => Size.fromHeight(height);
 
   const CustomAppBar({
     Key? key,
@@ -13,9 +15,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       toolbarHeight: height,
-      title: Container(
+      title: const SizedBox(
         width: double.infinity,
-        child: const Text(
+        child: Text(
           AppStrings.appTitle,
           textAlign: TextAlign.left,
           maxLines: 2,
@@ -29,10 +31,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       backgroundColor: Colors.white,
       elevation: 0,
-
     );
   }
 
-  @override
-  Size get preferredSize => Size.fromHeight(height);
+
 }
