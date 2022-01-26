@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:places/ui/app_assets.dart';
 import 'package:places/ui/screen/sight_card_visited.dart';
 import 'package:places/ui/screen/sight_card_want_visit.dart';
-
-import '../../mocks.dart';
-import '../app_strings.dart';
+import 'package:places/mocks.dart';
+import 'package:places/ui/app_strings.dart';
 
 class VisitingScreen extends StatefulWidget {
   const VisitingScreen({Key? key}) : super(key: key);
@@ -114,22 +114,22 @@ class _VisitingScreenState extends State<VisitingScreen> {
             backgroundColor: Colors.white,
             items: [
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('res/images/icons/List.svg',
+                icon: SvgPicture.asset(AppAssets.appIconList,
                     width: 24.0, height: 24.0,),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('res/images/icons/Map.svg',
+                icon: SvgPicture.asset(AppAssets.appIconMap,
                     width: 24.0, height: 24.0,),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('res/images/icons/Heart Full.svg',
+                icon: SvgPicture.asset(AppAssets.appIconHeartFull,
                     width: 24.0, height: 24.0,),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset('res/images/icons/Settings.svg',
+                icon: SvgPicture.asset(AppAssets.appIconSettings,
                     width: 24.0, height: 24.0,),
                 label: '',
               ),

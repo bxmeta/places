@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:places/ui/app_assets.dart';
 import 'package:places/ui/screen/sight_card.dart';
+import 'package:places/mocks.dart';
 import 'package:places/ui/widget/custom_appbar.dart';
 
-import '../../mocks.dart';
 
 class SightListScreen extends StatefulWidget {
   const SightListScreen({Key? key}) : super(key: key);
@@ -45,23 +46,35 @@ class _SightListScreenState extends State<SightListScreen> {
           backgroundColor: Colors.white,
           items: [
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('res/images/icons/List.svg',
-                  width: 24.0, height: 24.0,),
+              icon: SvgPicture.asset(
+                AppAssets.appIconList,
+                width: 24.0,
+                height: 24.0,
+              ),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('res/images/icons/Map.svg',
-                  width: 24.0, height: 24.0,),
+              icon: SvgPicture.asset(
+                AppAssets.appIconMap,
+                width: 24.0,
+                height: 24.0,
+              ),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('res/images/icons/Heart Full.svg',
-                  width: 24.0, height: 24.0,),
+              icon: SvgPicture.asset(
+                AppAssets.appIconHeartFull,
+                width: 24.0,
+                height: 24.0,
+              ),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('res/images/icons/Settings.svg',
-                  width: 24.0, height: 24.0,),
+              icon: SvgPicture.asset(
+                AppAssets.appIconSettings,
+                width: 24.0,
+                height: 24.0,
+              ),
               label: '',
             ),
           ],

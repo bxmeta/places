@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/app_assets.dart';
 import 'package:places/ui/app_strings.dart';
 
 class SightCardVisited extends StatelessWidget {
@@ -34,7 +35,11 @@ class SightCardVisited extends StatelessWidget {
                       image: DecorationImage(
                         image: Image.network(
                           sight.url,
-                          loadingBuilder: (context, child, loadingProgress,) {
+                          loadingBuilder: (
+                            context,
+                            child,
+                            loadingProgress,
+                          ) {
                             if (loadingProgress == null) {
                               return child;
                             }
@@ -70,12 +75,18 @@ class SightCardVisited extends StatelessWidget {
                 Positioned(
                   right: 63,
                   top: 16,
-                  child: SvgPicture.asset('res/images/icons/Share.svg', width: 24.0, height: 24.0, color: Colors.white),
+                  child: SvgPicture.asset(AppAssets.appIconShare,
+                      width: 24.0, height: 24.0, color: Colors.white),
                 ),
                 Positioned(
                   right: 22,
                   top: 16,
-                  child:  SvgPicture.asset('res/images/icons/Heart.svg', width: 24.0, height: 24.0, color: Colors.white,),
+                  child: SvgPicture.asset(
+                    AppAssets.appIconHeart,
+                    width: 24.0,
+                    height: 24.0,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
