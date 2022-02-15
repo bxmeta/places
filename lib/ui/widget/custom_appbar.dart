@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/app_strings.dart';
+import 'package:places/ui/res/app_strings.dart';
+
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
@@ -15,21 +16,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       toolbarHeight: height,
-      title: const SizedBox(
-        width: double.infinity,
-        child: Text(
-          AppStrings.appTitle,
-          textAlign: TextAlign.left,
-          maxLines: 2,
-          style: TextStyle(
-            color: Color.fromRGBO(37, 40, 73, 1),
-            fontSize: 32,
-            height: 1.1,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+      title: const Text(
+        AppStrings.appTitle,
+        textAlign: TextAlign.left,
       ),
-      backgroundColor: Colors.white,
       elevation: 0,
     );
   }

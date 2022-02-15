@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:places/ui/app_assets.dart';
+import 'package:places/ui/res/app_icons.dart';
 import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/mocks.dart';
 import 'package:places/ui/widget/custom_appbar.dart';
@@ -30,50 +30,39 @@ class _SightListScreenState extends State<SightListScreen> {
               .toList(),
         ),
       ),
-      backgroundColor: Colors.white,
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
+        decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Color.fromARGB(24, 126, 146, 1),
-              offset: Offset(0, -0.5),
+              color: Theme.of(context).shadowColor,
+              offset: const Offset(0, -0.5),
             ),
           ],
         ),
         child: BottomNavigationBar(
           showSelectedLabels: false,
-          backgroundColor: Colors.white,
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppAssets.appIconList,
-                width: 24.0,
-                height: 24.0,
+                AppIcons.appIconList,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppAssets.appIconMap,
-                width: 24.0,
-                height: 24.0,
+                AppIcons.appIconMap,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppAssets.appIconHeartFull,
-                width: 24.0,
-                height: 24.0,
+                AppIcons.appIconHeartFull,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppAssets.appIconSettings,
-                width: 24.0,
-                height: 24.0,
+                AppIcons.appIconSettings,
               ),
               label: '',
             ),

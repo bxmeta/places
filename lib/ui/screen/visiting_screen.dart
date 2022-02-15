@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:places/ui/app_assets.dart';
+import 'package:places/ui/res/app_icons.dart';
 import 'package:places/ui/screen/sight_card_visited.dart';
 import 'package:places/ui/screen/sight_card_want_visit.dart';
 import 'package:places/mocks.dart';
-import 'package:places/ui/app_strings.dart';
+import 'package:places/ui/res/app_strings.dart';
 
 class VisitingScreen extends StatefulWidget {
   const VisitingScreen({Key? key}) : super(key: key);
@@ -22,17 +22,12 @@ class _VisitingScreenState extends State<VisitingScreen> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          titleTextStyle: Theme.of(context).textTheme.subtitle1,
           title: Container(
             height: 56,
             alignment: Alignment.center,
             child: const Text(
               AppStrings.appFavoritTitle,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Color.fromRGBO(37, 40, 73, 1),
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
             ),
           ),
           bottom: PreferredSize(
@@ -40,32 +35,23 @@ class _VisitingScreenState extends State<VisitingScreen> {
             child: Container(
               // margin: EdgeInsets.all(20),
               margin: const EdgeInsets.only(left: 15, right: 15),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(50)),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(50)),
                 // Creates border
-                color: Color.fromRGBO(245, 245, 245, 1),
+                color: Theme.of(context).bottomAppBarColor,
               ),
               child: const TabBar(
-                labelColor: Colors.white,
-                unselectedLabelColor: Color.fromRGBO(124, 126, 146, 1),
                 // indicatorPadding: EdgeInsets.only(left: 16, right: 16),
-                indicator: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(50)),
-                  // Creates border
-                  color: Color.fromRGBO(59, 62, 91, 1),
-                ),
                 tabs: [
                   Tab(
                     child: Text(
                       AppStrings.appWantVisit,
-                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     height: 40,
                   ),
                   Tab(
                     child: Text(
                       AppStrings.appVisited,
-                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     height: 40,
                   ),
@@ -73,11 +59,9 @@ class _VisitingScreenState extends State<VisitingScreen> {
               ),
             ),
           ),
-          backgroundColor: Colors.white,
           elevation: 0,
         ),
-        body:
-        TabBarView(children: [
+        body: TabBarView(children: [
           SingleChildScrollView(
             padding: const EdgeInsets.only(top: 32.0),
             child: Column(
@@ -99,38 +83,52 @@ class _VisitingScreenState extends State<VisitingScreen> {
             ),
           ),
         ]),
-        backgroundColor: Colors.white,
         bottomNavigationBar: Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
+          decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Color.fromARGB(24, 126, 146, 1), offset: Offset(0, -0.5),
+                color: Theme.of(context).shadowColor,
+                offset: const Offset(0, -0.5),
               ),
             ],
           ),
           child: BottomNavigationBar(
             showSelectedLabels: false,
-            backgroundColor: Colors.white,
             items: [
               BottomNavigationBarItem(
-                icon: SvgPicture.asset(AppAssets.appIconList,
-                    width: 24.0, height: 24.0,),
+                icon: SvgPicture.asset(
+                  AppIcons.appIconList,
+                  width: 24.0,
+                  height: 24.0,
+                  color: Theme.of(context).primaryColor,
+                ),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset(AppAssets.appIconMap,
-                    width: 24.0, height: 24.0,),
+                icon: SvgPicture.asset(
+                  AppIcons.appIconMap,
+                  width: 24.0,
+                  height: 24.0,
+                  color: Theme.of(context).primaryColor,
+                ),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset(AppAssets.appIconHeartFull,
-                    width: 24.0, height: 24.0,),
+                icon: SvgPicture.asset(
+                  AppIcons.appIconHeartFull,
+                  width: 24.0,
+                  height: 24.0,
+                  color: Theme.of(context).primaryColor,
+                ),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: SvgPicture.asset(AppAssets.appIconSettings,
-                    width: 24.0, height: 24.0,),
+                icon: SvgPicture.asset(
+                  AppIcons.appIconSettings,
+                  width: 24.0,
+                  height: 24.0,
+                  color: Theme.of(context).primaryColor,
+                ),
                 label: '',
               ),
             ],
