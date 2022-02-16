@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/app_assets.dart';
-import 'package:places/ui/app_strings.dart';
+import 'package:places/ui/res/app_icons.dart';
+import 'package:places/ui/res/app_strings.dart';
 
 class SightCardWantVisit extends StatelessWidget {
   final Sight sight;
@@ -61,31 +61,27 @@ class SightCardWantVisit extends StatelessWidget {
                   top: 16,
                   child: Text(
                     sight.type,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                 ),
                 Positioned(
                   right: 63,
                   top: 16,
-                  child: SvgPicture.asset(AppAssets.appIconCalendar, width: 24.0, height: 24.0, color: Colors.white),
+                  child: SvgPicture.asset(AppIcons.appIconCalendar, width: 24.0, height: 24.0),
                 ),
                 Positioned(
                   right: 22,
                   top: 16,
-                  child:  SvgPicture.asset(AppAssets.appIconHeart, width: 24.0, height: 24.0, color: Colors.white,),
+                  child:  SvgPicture.asset(AppIcons.appIconHeart, width: 24.0, height: 24.0),
                 ),
               ],
             ),
             Container(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
               width: double.infinity,
-              decoration: const BoxDecoration(
-                color: Color.fromRGBO(245, 245, 245, 1),
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: Theme.of(context).bottomAppBarColor,
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(16.0),
                   bottomRight: Radius.circular(16.0),
                 ),
@@ -99,31 +95,20 @@ class SightCardWantVisit extends StatelessWidget {
                   Text(
                     sight.name,
                     maxLines: 2,
-                    style: const TextStyle(
-                      color: Color.fromRGBO(37, 40, 73, 1),
-                      fontSize: 16,
-                      height: 1.2,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: Theme.of(context).textTheme.headline5,
                   ),
-                  const Text(
+                  Text(
                     AppStrings.appWantVisitTime,
-                    style: TextStyle(
-                      color: Color.fromRGBO(76, 175, 80, 1),
-                      fontSize: 14,
-                    ),
+                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
+                  Text(
                     AppStrings.appVisitedClose,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: Color.fromRGBO(124, 126, 146, 1),
-                      fontSize: 14,
-                    ),
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ],
               ),

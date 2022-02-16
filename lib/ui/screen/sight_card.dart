@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/res/app_icons.dart';
 
 class SightCard extends StatelessWidget {
   final Sight sight;
@@ -32,7 +34,11 @@ class SightCard extends StatelessWidget {
                       image: DecorationImage(
                         image: Image.network(
                           sight.url,
-                          loadingBuilder: (context, child, loadingProgress,) {
+                          loadingBuilder: (
+                            context,
+                            child,
+                            loadingProgress,
+                          ) {
                             if (loadingProgress == null) {
                               return child;
                             }
@@ -58,18 +64,14 @@ class SightCard extends StatelessWidget {
                   top: 16,
                   child: Text(
                     sight.type,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                 ),
                 Positioned(
                   right: 16,
                   top: 16,
-                  child: Container(
-                    color: Colors.red,
+                  child: SvgPicture.asset(
+                    AppIcons.appIconHeartEmpty,
                     width: 20,
                     height: 18,
                   ),
@@ -78,9 +80,9 @@ class SightCard extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-              decoration: const BoxDecoration(
-                color: Color.fromRGBO(245, 245, 245, 1),
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: Theme.of(context).bottomAppBarColor,
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(16.0),
                   bottomRight: Radius.circular(16.0),
                 ),
@@ -94,12 +96,7 @@ class SightCard extends StatelessWidget {
                   Text(
                     sight.name,
                     maxLines: 2,
-                    style: const TextStyle(
-                      color: Color.fromRGBO(37, 40, 73, 1),
-                      fontSize: 16,
-                      height: 1.2,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: Theme.of(context).textTheme.headline5,
                   ),
                   const SizedBox(
                     height: 2,
@@ -108,10 +105,7 @@ class SightCard extends StatelessWidget {
                     sight.details,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      color: Color.fromRGBO(124, 126, 146, 1),
-                      fontSize: 14,
-                    ),
+                    style: Theme.of(context).textTheme.headline4,
                   ),
                 ],
               ),
