@@ -71,19 +71,29 @@ class SightCardVisited extends StatelessWidget {
                 Positioned(
                   right: 63,
                   top: 16,
-                  child: SvgPicture.asset(
-                    AppIcons.appIconShare,
-                    width: 24.0,
-                    height: 24.0,
+                  child: InkWell(
+                    onTap: () {
+                      print('share');
+                    },
+                    child: SvgPicture.asset(
+                      AppIcons.appIconShare,
+                      width: 24.0,
+                      height: 24.0,
+                    ),
                   ),
                 ),
                 Positioned(
                   right: 22,
                   top: 16,
-                  child: SvgPicture.asset(
-                    AppIcons.appIconHeart,
-                    width: 24.0,
-                    height: 24.0,
+                  child: InkWell(
+                    onTap: () {
+                      print('delete');
+                    },
+                    child: SvgPicture.asset(
+                      AppIcons.appIconHeart,
+                      width: 24.0,
+                      height: 24.0,
+                    ),
                   ),
                 ),
               ],

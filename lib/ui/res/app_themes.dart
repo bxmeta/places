@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:places/ui/res/app_colors.dart';
 import 'package:places/ui/res/app_styles.dart';
 
+
+
+
+
+
 final lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: AppColors.lmNavIconColor,
@@ -36,6 +41,7 @@ final lightTheme = ThemeData(
         bodyText2: cardInfo.copyWith(color: AppColors.lmInfo),
     ),
     shadowColor: AppColors.lmShadow,
+    buttonColor: AppColors.lmWantVisitTime
 );
 
 final darkTheme = ThemeData(
