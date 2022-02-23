@@ -14,11 +14,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const isDark = true;
+    const isDark = false;
 
     return  MaterialApp(
       title: 'Demo',
-      theme: isDark ? darkTheme : lightTheme,
+      theme:  lightTheme,
       home: const SightDetails(),
     );
   }

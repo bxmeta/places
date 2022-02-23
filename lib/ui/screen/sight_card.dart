@@ -64,7 +64,7 @@ class SightCard extends StatelessWidget {
                   top: 16,
                   child: Text(
                     sight.type,
-                    style: Theme.of(context).textTheme.headline3,
+                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ),
                 Positioned(
@@ -101,7 +101,7 @@ class SightCard extends StatelessWidget {
                   Text(
                     sight.name,
                     maxLines: 2,
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                   const SizedBox(
                     height: 2,
@@ -110,7 +110,7 @@ class SightCard extends StatelessWidget {
                     sight.details,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ],
               ),

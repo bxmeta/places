@@ -65,7 +65,7 @@ class SightCardWantVisit extends StatelessWidget {
                   top: 16,
                   child: Text(
                     sight.type,
-                    style: Theme.of(context).textTheme.headline3,
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
                 Positioned(
@@ -117,11 +117,11 @@ class SightCardWantVisit extends StatelessWidget {
                   Text(
                     sight.name,
                     maxLines: 2,
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headline2,
                   ),
                   Text(
                     AppStrings.appWantVisitTime,
-                    style: Theme.of(context).textTheme.subtitle2,
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                   const SizedBox(
                     height: 10,

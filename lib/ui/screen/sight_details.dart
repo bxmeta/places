@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:places/ui/res/app_colors.dart';
 import 'package:places/ui/res/app_icons.dart';
 
 class SightDetails extends StatelessWidget {
@@ -8,14 +9,12 @@ class SightDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Column(
         children: [
           Stack(children: [
             Container(
               height: 360,
               width: double.infinity,
-              color: Colors.white,
               child: Image.network(
                 'https://avatars.mds.yandex.net/get-altay/2887807/2a00000170433ced5dab694dea565f8e3fbe/XXXL',
                 fit: BoxFit.cover,
@@ -49,16 +48,12 @@ class SightDetails extends StatelessWidget {
                     AppIcons.appIconBack,
                     width: 5.0,
                     height: 10.0,
+                    color: Theme.of(context).primaryColorDark,
                   ),
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
-                        Theme.of(context).primaryColor),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    )),
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                        EdgeInsets.all(0)),
+                      Theme.of(context).primaryColor,
+                    ),
                   ),
                 ),
               ),
@@ -75,35 +70,27 @@ class SightDetails extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: double.infinity,
                   child: Text(
-                    'Пряности и радости',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                      color: Color.fromRGBO(37, 40, 73, 1),
-                    ),
+                    'Пряности и радости', //@TODO: заменить
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 2),
                   child: Row(
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           right: 16,
                         ),
                         child: Text(
-                          'ресторан',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 14,
-                            color: Color.fromRGBO(37, 40, 73, 1),
-                          ),
+                          'ресторан', //@TODO: заменить
+                          style: Theme.of(context).textTheme.headline1,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'закрыто до 9:00',
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
@@ -124,45 +111,86 @@ class SightDetails extends StatelessWidget {
                     ),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    print('get directories');
-                  },
-                  child: Text('wtf sadsa ds'),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        Theme.of(context).primaryColor),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        )),
-                    padding: MaterialStateProperty.all<EdgeInsets>(
-                        EdgeInsets.all(0)),
-                  ),
+                const SizedBox(
+                  height: 24,
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 39),
-                  height: 48,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    color: Color.fromRGBO(76, 175, 80, 1),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 32),
-                  child: Row(
-                    children: const [
-                      Expanded(
-                        child: Text(
-                          'Запланироать',
-                          textAlign: TextAlign.center,
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      print('get directories');
+                    },
+                    icon: SvgPicture.asset(
+                      AppIcons.appIconGo,
+                      width: 24.0,
+                      height: 24.0,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    label: Text(
+                      'ПОСТРОИТЬ МАРШРУТ',
+                      style: Theme.of(context).textTheme.headline1?.merge(
+                            TextStyle(color: Theme.of(context).primaryColor),
+                          ),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          AppColors.lmWantVisitTime),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
                       ),
-                      Expanded(
-                        child: Text('В избранное', textAlign: TextAlign.center),
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                        const EdgeInsets.only(
+                          top: 15,
+                          bottom: 15,
+                        ),
                       ),
-                    ],
+                    ),
                   ),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextButton.icon(
+                        onPressed: () {
+                          print('plan');
+                        },
+                        icon: SvgPicture.asset(
+                          AppIcons.appIconCalendar,
+                          width: 22.0,
+                          height: 19.0,
+                          color: Theme.of(context).shadowColor,
+                        ),
+                        label: Text('Запланировать',
+                            style: Theme.of(context).textTheme.headline5),
+                      ),
+                    ),
+                    Expanded(
+                      child: TextButton.icon(
+                        onPressed: () {
+                          print('plan');
+                        },
+                        icon: SvgPicture.asset(
+                          AppIcons.appIconHeartAdd,
+                          width: 22.0,
+                          height: 19.0,
+                          color: Theme.of(context).shadowColor,
+                        ),
+                        label: Text(
+                          'В избранное',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headline5
+                              ?.copyWith(
+                                  color: Theme.of(context).primaryColorDark),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
