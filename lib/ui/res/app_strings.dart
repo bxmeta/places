@@ -9,4 +9,5 @@ class AppStrings {
   static const appDistance = 'Растроение';
   static const appDistanceHint = 'От 100м до 10 км';
   static const appShow = 'Показать';
+  static const appClear = 'Очистить';
 }

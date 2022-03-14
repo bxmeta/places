@@ -18,7 +18,7 @@ class FilterScreen extends StatefulWidget {
 
 class _FilterScreenState extends State<FilterScreen> {
   final _userLocation = const Location(lat: 56.8549102, lon: 53.2220899); //пока статика
-  RangeValues _currentRangeValues = const RangeValues(100, 10000);
+  late RangeValues _currentRangeValues = const RangeValues(100, 10000);
   int _sightCount = mocks.length;
 
   @override
@@ -62,12 +62,20 @@ class _FilterScreenState extends State<FilterScreen> {
               Positioned(
                 top: 18,
                 right: 16,
-                child: Text(
-                  'Очистить',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline2
-                      ?.copyWith(color: AppColors.lmWantVisitTime),
+                child: TextButton(
+                  onPressed: () {
+                      setState(() {
+                        _currentRangeValues = RangeValues(100, 10000);
+                        _sightCount = mocks.length;
+                      });
+                  },
+                  child: Text(
+                    AppStrings.appClear,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline2
+                        ?.copyWith(color: AppColors.lmWantVisitTime),
+                  ),
                 ),
               ),
             ],
