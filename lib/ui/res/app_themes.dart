@@ -16,84 +16,76 @@ final _textMiddle18 = _textMiddle.copyWith(fontSize: 18, height: 22.5 / 16);
 final _textBold24 = _textBold.copyWith(fontSize: 24, height: 1.2);
 final _textBold32 = _textBold.copyWith(fontSize: 32, height: 36 / 32);
 
-final lightTheme = ThemeData(
-  brightness: Brightness.light,
-  primaryColor: AppColors.lmBackground,
-  primaryColorDark: AppColors.lmNavIconColor,
-  // backgroundColor: AppColors.lmBackgroundMain,
-  appBarTheme: AppBarTheme(
-    centerTitle: false,
-    titleTextStyle: _textBold32.copyWith(color: AppColors.lmTitle),
-    backgroundColor: AppColors.lmBackground,
-  ),
-  tabBarTheme:  TabBarTheme(
-    labelColor: AppColors.lmTabActive,
-    labelStyle: _textBold14,
-    unselectedLabelColor: AppColors.lmTabUnactive,
-    indicator: const BoxDecoration(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
-      // Creates border
-      color: AppColors.lmTabIndicator,
-    ),
-  ),
-  scaffoldBackgroundColor: AppColors.lmBackground,
-  bottomAppBarColor: AppColors.lmSecondBackground,
-  canvasColor: AppColors.lmSecondBackground,
-  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    backgroundColor: AppColors.lmSecondBackground,
-    // selectedItemColor: AppColors.lmBackground,
-    // unselectedItemColor: AppColors.lmTabIndicator,
-  ),
-  // canvasColor: AppColors.lmTabIndicator,
-  textTheme: TextTheme(
-    subtitle1: _textMiddle16.copyWith(color: AppColors.lmTitle),
-    subtitle2: _textBold14.copyWith(color: AppColors.lmCategory),
-    headline1: _textBold14.copyWith(color: AppColors.lmTitle),
-    headline2: _textRegular16.copyWith(color: AppColors.lmTitle),
-    headline3: _textRegular14.copyWith(color: AppColors.lmWantVisitTime),
-    headline4: _textBold24.copyWith(color: AppColors.lmTitle),
-    headline5: _textRegular14.copyWith(color: AppColors.lmDescription),
-    headline6: _textBold24.copyWith(color: AppColors.lmTitle),
-    bodyText1: _textMiddle14.copyWith(color: AppColors.lmDescription),
-    bodyText2: _textMiddle14.copyWith(color: AppColors.lmDescription),
-  ),
-  shadowColor: AppColors.lmShadow,
-  elevatedButtonTheme: _baseElevatedButtonTheme,
-);
+class AppThemes {
+  static final ThemeData lightTheme = _buildLightTheme();
+  static final ThemeData darkTheme = _buildThemeDark();
 
-// final darkTheme = ThemeData(
-//   brightness: Brightness.dark,
-//   primaryColor: AppColors.dmNavIconColor,
-//   backgroundColor: AppColors.dmBackgroundMain,
-//   bottomAppBarColor: AppColors.dmBackgroundSecond,
-//   appBarTheme: AppBarTheme(
-//     centerTitle: false,
-//     titleTextStyle: appBarText.copyWith(color: AppColors.dmTitle),
-//     backgroundColor: AppColors.dmBackgroundMain,
-//   ),
-//   tabBarTheme: TabBarTheme(
-//     labelColor: AppColors.dmTabActive,
-//     labelStyle: tabLabel,
-//     unselectedLabelColor: AppColors.dmTabUnactive,
-//     indicator: const BoxDecoration(
-//       borderRadius: BorderRadius.all(Radius.circular(50)),
-//       // Creates border
-//       color: AppColors.dmTabIndicator,
-//     ),
-//   ),
-//   scaffoldBackgroundColor: AppColors.dmBackgroundMain,
-//   canvasColor: AppColors.dmBackgroundSecond,
-//   textTheme: TextTheme(
-//     headline5: cardTitle.copyWith(color: AppColors.dmTitle),
-//     headline4: cardDescription.copyWith(color: AppColors.dmDescription),
-//     headline3: cardCategory.copyWith(color: AppColors.dmCategory),
-//     subtitle1: appBarTextVisited.copyWith(color: AppColors.dmTitle),
-//     subtitle2: cardTime.copyWith(color: AppColors.dmWantVisitTime),
-//     bodyText1: cardInfo.copyWith(color: AppColors.dmInfo),
-//     bodyText2: cardInfo.copyWith(color: AppColors.dmInfo),
-//   ),
-//   shadowColor: AppColors.dmShadow,
-// );
+  AppThemes._();
+
+  static ThemeData _buildLightTheme() {
+    final _base = ThemeData.light();
+
+    return _base.copyWith(
+      brightness: Brightness.light,
+      primaryColor: AppColors.lmBackground,
+      primaryColorDark: AppColors.lmNavIconColor,
+      // backgroundColor: AppColors.lmBackgroundMain,
+      appBarTheme: AppBarTheme(
+        centerTitle: false,
+        titleTextStyle: _textBold32.copyWith(color: AppColors.lmTitle),
+        backgroundColor: AppColors.lmBackground,
+        elevation: 0,
+      ),
+      tabBarTheme: TabBarTheme(
+        labelColor: AppColors.lmTabActive,
+        labelStyle: _textBold14,
+        unselectedLabelColor: AppColors.lmTabUnactive,
+        indicator: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(50)),
+          // Creates border
+          color: AppColors.lmTabIndicator,
+        ),
+      ),
+      scaffoldBackgroundColor: AppColors.lmBackground,
+      bottomAppBarColor: AppColors.lmSecondBackground,
+      canvasColor: AppColors.lmSecondBackground,
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: AppColors.lmSecondBackground,
+        // selectedItemColor: AppColors.lmBackground,
+        // unselectedItemColor: AppColors.lmTabIndicator,
+      ),
+      // canvasColor: AppColors.lmTabIndicator,
+      textTheme: TextTheme(
+        subtitle1: _textMiddle16.copyWith(color: AppColors.lmTitle),
+        subtitle2: _textBold14.copyWith(color: AppColors.lmCategory),
+        headline1: _textBold14.copyWith(color: AppColors.lmTitle),
+        headline2: _textRegular16.copyWith(color: AppColors.lmTitle),
+        headline3: _textRegular14.copyWith(color: AppColors.lmWantVisitTime),
+        headline4: _textBold24.copyWith(color: AppColors.lmTitle),
+        headline5: _textRegular14.copyWith(color: AppColors.lmDescription),
+        headline6: _textBold24.copyWith(color: AppColors.lmTitle),
+        bodyText1: _textMiddle14.copyWith(color: AppColors.lmDescription),
+        bodyText2: _textMiddle14.copyWith(color: AppColors.lmDescription),
+        button: _textBold14.copyWith(color: AppColors.lmBackground),
+      ),
+      shadowColor: AppColors.lmShadow,
+      elevatedButtonTheme: _baseElevatedButtonTheme,
+      sliderTheme: const SliderThemeData(
+        trackHeight: 2,
+        thumbColor: AppColors.lmBackground,
+        activeTrackColor: AppColors.lmWantVisitTime,
+      ),
+    );
+  }
+
+  static ThemeData _buildThemeDark() {
+    final _base = ThemeData.light();
+
+    return _base.copyWith(
+      brightness: Brightness.dark,
+    );
+  }
+}
 
 final _baseElevatedButtonTheme = ElevatedButtonThemeData(
   style: ButtonStyle(

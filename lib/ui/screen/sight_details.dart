@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/ui/res/app_colors.dart';
@@ -12,7 +13,7 @@ class SightDetails extends StatelessWidget {
       body: Column(
         children: [
           Stack(children: [
-            Container(
+            SizedBox(
               height: 360,
               width: double.infinity,
               child: Image.network(
@@ -42,7 +43,9 @@ class SightDetails extends StatelessWidget {
                 height: 32,
                 child: ElevatedButton(
                   onPressed: () {
-                    print('back');
+                    if (kDebugMode) {
+                      print('back');
+                    }
                   },
                   child: SvgPicture.asset(
                     AppIcons.appIconBack,
@@ -118,7 +121,9 @@ class SightDetails extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      print('get directories');
+                      if (kDebugMode) {
+                        print('get directories');
+                      }
                     },
                     icon: SvgPicture.asset(
                       AppIcons.appIconGo,
@@ -134,7 +139,8 @@ class SightDetails extends StatelessWidget {
                     ),
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          AppColors.lmWantVisitTime),
+                        AppColors.lmWantVisitTime,
+                      ),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -157,7 +163,9 @@ class SightDetails extends StatelessWidget {
                     Expanded(
                       child: TextButton.icon(
                         onPressed: () {
-                          print('plan');
+                          if (kDebugMode) {
+                            print('plan');
+                          }
                         },
                         icon: SvgPicture.asset(
                           AppIcons.appIconCalendar,
@@ -165,14 +173,18 @@ class SightDetails extends StatelessWidget {
                           height: 19.0,
                           color: Theme.of(context).shadowColor,
                         ),
-                        label: Text('Запланировать',
-                            style: Theme.of(context).textTheme.headline5),
+                        label: Text(
+                          'Запланировать',
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
                       ),
                     ),
                     Expanded(
                       child: TextButton.icon(
                         onPressed: () {
-                          print('plan');
+                          if (kDebugMode) {
+                            print('plan');
+                          }
                         },
                         icon: SvgPicture.asset(
                           AppIcons.appIconHeartAdd,
@@ -182,11 +194,10 @@ class SightDetails extends StatelessWidget {
                         ),
                         label: Text(
                           'В избранное',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline5
-                              ?.copyWith(
-                                  color: Theme.of(context).primaryColorDark),
+                          style:
+                              Theme.of(context).textTheme.headline5?.copyWith(
+                                    color: Theme.of(context).primaryColorDark,
+                                ),
                         ),
                       ),
                     ),
