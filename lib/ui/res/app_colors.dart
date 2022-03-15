@@ -13,8 +13,8 @@ class AppColors {
   static const lmNavIconColor = Color(0xFF252849);
   static const lmShadow = Color(0xFF7C7E92);
 
-  static const dmBackgroundMain = Color(0xFF21222C);
-  static const dmBackgroundSecond = Color(0xFF1A1A20);
+  static const dmBackground = Color(0xFF21222C);
+  static const dmSecondBackground = Color(0xFF1A1A20);
   static const dmTitle = Color(0xFFFFFFFF);
   static const dmDescription = Color(0xFF7C7E92);
   static const dmCategory = Color(0xFFFFFFFF);

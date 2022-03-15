@@ -10,4 +10,5 @@ class AppIcons {
   static const appIconCalendar = 'res/images/icons/Calendar.svg';
   static const appIconBack = 'res/images/icons/Arrow.svg';
   static const appIconGo = 'res/images/icons/GO.svg';
+  static const appInfo = 'res/images/icons/Union.svg';
 }
