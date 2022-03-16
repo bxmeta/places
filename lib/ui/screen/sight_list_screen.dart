@@ -40,6 +40,10 @@ class _SightListScreenState extends State<SightListScreen> {
           ],
         ),
         child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          elevation:0,
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(

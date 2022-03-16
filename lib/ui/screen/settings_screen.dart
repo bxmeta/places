@@ -24,7 +24,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         titleTextStyle: Theme.of(context).textTheme.subtitle1,
-        title: Text(AppStrings.appConfig),
+        title: const Text(AppStrings.appConfig),
         centerTitle: true,
       ),
       body:  Column(
