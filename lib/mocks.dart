@@ -1,4 +1,6 @@
+import 'package:places/domain/place_type.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/res/app_icons.dart';
 
 final List<Sight> mocks = [
   Sight(
@@ -30,5 +32,33 @@ final List<Sight> mocks = [
     details:
     'История Свято-Михайловского Собора в г. Ижевске берет свое начало из XIX века. В 1893 году рабочие Ижевского завода начали перечислять 1% от ежемесячной заработной платы на строительство храма, а в 1897 году состоялась закладка Свято-Михайловского Собора.',
     type: 'Собор',
+  ),
+];
+
+final List<PlaceType> placeTypes = [
+  PlaceType(
+    name: 'Отель',
+    icon: AppIcons.appHotel,
+  ),
+  PlaceType(
+    name: 'Ресторан',
+    icon: AppIcons.appRestourant,
+  ),
+  PlaceType(
+    name: 'Особое место',
+    icon: AppIcons.appParticular,
+  ),
+
+  PlaceType(
+    name: 'Парк',
+    icon: AppIcons.appPark,
+  ),
+  PlaceType(
+    name: 'Музей',
+    icon: AppIcons.appMuseum,
+  ),
+  PlaceType(
+    name: 'Кафе',
+    icon: AppIcons.appCafe,
   ),
 ];

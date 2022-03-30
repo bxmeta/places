@@ -6,6 +6,8 @@ import 'package:places/service/utils.dart';
 import 'package:places/ui/res/app_colors.dart';
 import 'package:places/ui/res/app_icons.dart';
 import 'package:places/ui/res/app_strings.dart';
+import 'package:places/ui/screen/sight_card.dart';
+import 'package:places/ui/widget/place_type_filter.dart';
 
 import '../../mocks.dart';
 
@@ -102,83 +104,15 @@ class _FilterScreenState extends State<FilterScreen> {
             const SizedBox(
               height: 24,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      borderRadius: const BorderRadius.all(Radius.circular(40)),
-                      child: Ink(
-                        padding: EdgeInsets.all(16),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(40)),
-                          color: Color.fromRGBO(76, 175, 80, 0.2),
-                        ),
-                        child: SvgPicture.asset(
-                          AppIcons.appHotel,
-                          width: 32,
-                          height: 32,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Text('Отель')
-                  ],
-                ),
-                Column(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      borderRadius: const BorderRadius.all(Radius.circular(40)),
-                      child: Ink(
-                        padding: EdgeInsets.all(16),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(40)),
-                          color: Color.fromRGBO(76, 175, 80, 0.2),
-                        ),
-                        child: SvgPicture.asset(
-                          AppIcons.appRestourant,
-                          width: 32,
-                          height: 32,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Text('Ресторан')
-                  ],
-                ),
-                Column(
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      borderRadius: const BorderRadius.all(Radius.circular(40)),
-                      child: Ink(
-                        padding: EdgeInsets.all(16),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(40)),
-                          color: Color.fromRGBO(76, 175, 80, 0.2),
-                        ),
-                        child: SvgPicture.asset(
-                          AppIcons.appRestourant,
-                          width: 32,
-                          height: 32,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Text('Ресторан')
-                  ],
-                ),
-
-              ],
+            Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              verticalDirection: VerticalDirection.down,
+              runSpacing: 3.0,
+              spacing: 3.0,
+              children: placeTypes
+                  .map((item) => placeTypeFilter(
+                placeType: item,
+              )).toList(),
             ),
             const SizedBox(
               height: 60,
