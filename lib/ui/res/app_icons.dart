@@ -11,4 +11,7 @@ class AppIcons {
   static const appIconBack = 'res/images/icons/Arrow.svg';
   static const appIconGo = 'res/images/icons/GO.svg';
   static const appInfo = 'res/images/icons/Union.svg';
+  static const appChoice = 'res/images/icons/Tick_choice.svg';
+  static const appHotel = 'res/images/icons/Hotel.svg';
+  static const appRestourant = 'res/images/icons/Restourant.svg';
 }

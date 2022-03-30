@@ -17,7 +17,8 @@ class FilterScreen extends StatefulWidget {
 }
 
 class _FilterScreenState extends State<FilterScreen> {
-  final _userLocation = const Location(lat: 56.8549102, lon: 53.2220899); //пока статика
+  final _userLocation =
+      const Location(lat: 56.8549102, lon: 53.2220899); //пока статика
   late RangeValues _currentRangeValues = const RangeValues(100, 10000);
   int _sightCount = mocks.length;
 
@@ -30,12 +31,12 @@ class _FilterScreenState extends State<FilterScreen> {
         title: Container(
           width: double.infinity,
           height: 56,
-          alignment: Alignment.center,
+          //alignment: Alignment.center,
           child: Stack(
             children: [
               Positioned(
-                top: 12,
-                left: 16,
+                top: 18,
+                left: 0,
                 child: SizedBox(
                   width: 32,
                   height: 32,
@@ -45,11 +46,11 @@ class _FilterScreenState extends State<FilterScreen> {
                         print('back');
                       }
                     },
-                    child: SvgPicture.asset(
-                      AppIcons.appIconBack,
-                      width: 32,
-                      height: 32,
-                      color: Theme.of(context).primaryColorDark,
+                    child: SizedBox(
+                      child: SvgPicture.asset(
+                        AppIcons.appIconBack,
+                        color: Theme.of(context).primaryColorDark,
+                      ),
                     ),
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
@@ -62,19 +63,22 @@ class _FilterScreenState extends State<FilterScreen> {
               Positioned(
                 top: 18,
                 right: 16,
-                child: TextButton(
-                  onPressed: () {
+                child: SizedBox(
+                  height: 32,
+                  child: TextButton(
+                    onPressed: () {
                       setState(() {
                         _currentRangeValues = RangeValues(100, 10000);
                         _sightCount = mocks.length;
                       });
-                  },
-                  child: Text(
-                    AppStrings.appClear,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline2
-                        ?.copyWith(color: AppColors.lmWantVisitTime),
+                    },
+                    child: Text(
+                      AppStrings.appClear,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline2
+                          ?.copyWith(color: AppColors.lmWantVisitTime),
+                    ),
                   ),
                 ),
               ),
@@ -89,14 +93,105 @@ class _FilterScreenState extends State<FilterScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 344,
+              height: 24,
+            ),
+            Text(
+              'КАТЕГОРИИ',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            const SizedBox(
+              height: 24,
             ),
             Row(
-              children: const [
-                Expanded(
-                  child: Text(AppStrings.appDistance),
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      borderRadius: const BorderRadius.all(Radius.circular(40)),
+                      child: Ink(
+                        padding: EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(40)),
+                          color: Color.fromRGBO(76, 175, 80, 0.2),
+                        ),
+                        child: SvgPicture.asset(
+                          AppIcons.appHotel,
+                          width: 32,
+                          height: 32,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Text('Отель')
+                  ],
                 ),
+                Column(
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      borderRadius: const BorderRadius.all(Radius.circular(40)),
+                      child: Ink(
+                        padding: EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(40)),
+                          color: Color.fromRGBO(76, 175, 80, 0.2),
+                        ),
+                        child: SvgPicture.asset(
+                          AppIcons.appRestourant,
+                          width: 32,
+                          height: 32,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Text('Ресторан')
+                  ],
+                ),
+                Column(
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      borderRadius: const BorderRadius.all(Radius.circular(40)),
+                      child: Ink(
+                        padding: EdgeInsets.all(16),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(40)),
+                          color: Color.fromRGBO(76, 175, 80, 0.2),
+                        ),
+                        child: SvgPicture.asset(
+                          AppIcons.appRestourant,
+                          width: 32,
+                          height: 32,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Text('Ресторан')
+                  ],
+                ),
+
+              ],
+            ),
+            const SizedBox(
+              height: 60,
+            ),
+            Row(
+              children: [
                 Expanded(
+                  child: Text(
+                    AppStrings.appDistance,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                ),
+                const Expanded(
                   child: Text(
                     AppStrings.appDistanceHint,
                     textAlign: TextAlign.right,
@@ -120,8 +215,8 @@ class _FilterScreenState extends State<FilterScreen> {
                       .where((item) => Utils.isPointInRingArea(
                             point: _userLocation,
                             center: Location(lat: item.lat, lon: item.lon),
-                            minRadius: _currentRangeValues.start/1000,
-                            maxRadius: _currentRangeValues.end/1000,
+                            minRadius: _currentRangeValues.start / 1000,
+                            maxRadius: _currentRangeValues.end / 1000,
                           ))
                       .toList()
                       .length;
@@ -139,7 +234,8 @@ class _FilterScreenState extends State<FilterScreen> {
                     print('get directions');
                   }
                 },
-                child: Text('${AppStrings.appShow.toUpperCase()} (${_sightCount.toString()})',
+                child: Text(
+                  '${AppStrings.appShow.toUpperCase()} (${_sightCount.toString()})',
                   style: Theme.of(context).textTheme.button,
                 ),
                 style: ButtonStyle(
