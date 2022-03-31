@@ -50,7 +50,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     },
                     child: SizedBox(
                       child: SvgPicture.asset(
-                        AppIcons.appIconBack,
+                        AppIcons.back,
                         color: Theme.of(context).primaryColorDark,
                       ),
                     ),
@@ -75,7 +75,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       });
                     },
                     child: Text(
-                      AppStrings.appClear,
+                      AppStrings.clear,
                       style: Theme.of(context)
                           .textTheme
                           .headline2
@@ -107,27 +107,25 @@ class _FilterScreenState extends State<FilterScreen> {
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               verticalDirection: VerticalDirection.down,
-              runSpacing: 3.0,
-              spacing: 3.0,
               children: placeTypes
                   .map((item) => placeTypeFilter(
                 placeType: item,
               )).toList(),
             ),
             const SizedBox(
-              height: 60,
+              height: 40,
             ),
             Row(
               children: [
                 Expanded(
                   child: Text(
-                    AppStrings.appDistance,
+                    AppStrings.distance,
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                 ),
                 const Expanded(
                   child: Text(
-                    AppStrings.appDistanceHint,
+                    AppStrings.distanceHint,
                     textAlign: TextAlign.right,
                   ),
                 ),
@@ -169,7 +167,7 @@ class _FilterScreenState extends State<FilterScreen> {
                   }
                 },
                 child: Text(
-                  '${AppStrings.appShow.toUpperCase()} (${_sightCount.toString()})',
+                  '${AppStrings.show.toUpperCase()} (${_sightCount.toString()})',
                   style: Theme.of(context).textTheme.button,
                 ),
                 style: ButtonStyle(

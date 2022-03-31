@@ -47,25 +47,25 @@ class _SightListScreenState extends State<SightListScreen> {
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconList,
+                AppIcons.list,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconMap,
+                AppIcons.map,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconHeartFull,
+                AppIcons.heartFull,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconSettings,
+                AppIcons.settings,
               ),
               label: '',
             ),

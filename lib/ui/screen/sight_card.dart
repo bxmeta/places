@@ -81,7 +81,7 @@ class SightCard extends StatelessWidget {
                         }
                       },
                       child: SvgPicture.asset(
-                        AppIcons.appIconHeartEmpty,
+                        AppIcons.heartEmpty,
                         width: 20,
                         height: 18,
                       ),

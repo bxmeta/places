@@ -1,6 +1,8 @@
 import 'package:places/domain/place_type.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/service/app_settings.dart';
 import 'package:places/ui/res/app_icons.dart';
+import 'package:places/ui/res/app_strings.dart';
 
 final List<Sight> mocks = [
   Sight(
@@ -37,28 +39,28 @@ final List<Sight> mocks = [
 
 final List<PlaceType> placeTypes = [
   PlaceType(
-    name: 'Отель',
-    icon: AppIcons.appHotel,
+    name: AppStrings.hotel,
+    icon: AppIcons.hotel,
   ),
   PlaceType(
-    name: 'Ресторан',
-    icon: AppIcons.appRestourant,
+    name: AppStrings.restourant,
+    icon: AppIcons.restourant,
   ),
   PlaceType(
-    name: 'Особое место',
-    icon: AppIcons.appParticular,
+    name: AppStrings.particular,
+    icon: AppIcons.particular,
   ),
 
   PlaceType(
-    name: 'Парк',
-    icon: AppIcons.appPark,
+    name: AppStrings.park,
+    icon: AppIcons.park,
   ),
   PlaceType(
-    name: 'Музей',
-    icon: AppIcons.appMuseum,
+    name: AppStrings.museum,
+    icon: AppIcons.museum,
   ),
   PlaceType(
-    name: 'Кафе',
-    icon: AppIcons.appCafe,
+    name: AppStrings.cafe,
+    icon: AppIcons.cafe,
   ),
 ];

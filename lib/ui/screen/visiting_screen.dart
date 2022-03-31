@@ -27,7 +27,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
             height: 56,
             alignment: Alignment.center,
             child: const Text(
-              AppStrings.appFavoritTitle,
+              AppStrings.favoritTitle,
             ),
           ),
           bottom: PreferredSize(
@@ -45,7 +45,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
                 tabs: [
                   Tab(
                     child: Text(
-                      AppStrings.appWantVisit,
+                      AppStrings.wantVisit,
                     ),
                     height: 40,
                   ),
@@ -100,7 +100,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
             items: [
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  AppIcons.appIconList,
+                  AppIcons.list,
                   width: 24.0,
                   height: 24.0,
                   // color: Theme.of(context).bottomAppBarColor,
@@ -109,7 +109,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  AppIcons.appIconMap,
+                  AppIcons.map,
                   width: 24.0,
                   height: 24.0,
                   // color: Theme.of(context).bottomAppBarColor,
@@ -118,7 +118,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  AppIcons.appIconHeartFull,
+                  AppIcons.heartFull,
                   width: 24.0,
                   height: 24.0,
                   // color: Theme.of(context).bottomAppBarColor,
@@ -127,7 +127,7 @@ class _VisitingScreenState extends State<VisitingScreen> {
               ),
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  AppIcons.appIconSettings,
+                  AppIcons.settings,
                   width: 24.0,
                   height: 24.0,
                   // color: Theme.of(context).bottomAppBarColor,
