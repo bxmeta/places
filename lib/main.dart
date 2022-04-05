@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/res/app_themes.dart';
+import 'package:places/ui/screen/sight_details.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
 import 'package:places/ui/screen/visiting_screen.dart';
 // import 'package:places/ui/screen/visiting_screen.dart';
@@ -13,12 +14,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const isDark = true;
+    const isDark = false;
 
     return  MaterialApp(
       title: 'Demo',
-      theme: isDark ? darkTheme : lightTheme,
-      home: const VisitingScreen(),
+      theme:  lightTheme,
+      home: const SightDetails(),
     );
   }
 }

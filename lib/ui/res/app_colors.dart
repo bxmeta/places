@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const lmBackgroundMain = Color(0xFFFFFFFF);
-  static const lmBackgroundSecond = Color(0xFFF5F5F5);
+  static const lmBackground = Color(0xFFFFFFFF);
+  static const lmSecondBackground = Color(0xFFF5F5F5);
   static const lmTitle = Color(0xFF3B3E5B);
   static const lmDescription = Color(0xFF7C7E92);
   static const lmCategory = Color(0xFFFFFFFF);
   static const lmWantVisitTime = Color(0xFF4CAF50);
-  static const lmInfo = Color(0xFF7C7E92);
   static const lmTabActive = Color(0xFFFFFFFF);
   static const lmTabUnactive = Color(0xFF7C7E92);
   static const lmTabIndicator = Color(0xFF3B3E5B);

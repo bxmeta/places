@@ -35,7 +35,11 @@ class SightCardWantVisit extends StatelessWidget {
                       image: DecorationImage(
                         image: Image.network(
                           sight.url,
-                          loadingBuilder: (context, child, loadingProgress,) {
+                          loadingBuilder: (
+                            context,
+                            child,
+                            loadingProgress,
+                          ) {
                             if (loadingProgress == null) {
                               return child;
                             }
@@ -61,18 +65,36 @@ class SightCardWantVisit extends StatelessWidget {
                   top: 16,
                   child: Text(
                     sight.type,
-                    style: Theme.of(context).textTheme.headline3,
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
                 Positioned(
                   right: 63,
                   top: 16,
-                  child: SvgPicture.asset(AppIcons.appIconCalendar, width: 24.0, height: 24.0),
+                  child: InkWell(
+                    onTap: () {
+                      print('calendar tap');
+                    },
+                    child: SvgPicture.asset(
+                      AppIcons.appIconCalendar,
+                      width: 24.0,
+                      height: 24.0,
+                    ),
+                  ),
                 ),
                 Positioned(
                   right: 22,
                   top: 16,
-                  child:  SvgPicture.asset(AppIcons.appIconHeart, width: 24.0, height: 24.0),
+                  child: InkWell(
+                    onTap: () {
+                      print('delete tap');
+                    },
+                    child: SvgPicture.asset(
+                      AppIcons.appIconHeart,
+                      width: 24.0,
+                      height: 24.0,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -95,11 +117,11 @@ class SightCardWantVisit extends StatelessWidget {
                   Text(
                     sight.name,
                     maxLines: 2,
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headline2,
                   ),
                   Text(
                     AppStrings.appWantVisitTime,
-                    style: Theme.of(context).textTheme.subtitle2,
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                   const SizedBox(
                     height: 10,
