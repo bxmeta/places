@@ -79,7 +79,7 @@ class SightCardWantVisit extends StatelessWidget {
                       }
                     },
                     child: SvgPicture.asset(
-                      AppIcons.appIconCalendar,
+                      AppIcons.calendar,
                       width: 24.0,
                       height: 24.0,
                     ),
@@ -95,7 +95,7 @@ class SightCardWantVisit extends StatelessWidget {
                       }
                     },
                     child: SvgPicture.asset(
-                      AppIcons.appIconHeart,
+                      AppIcons.heart,
                       width: 24.0,
                       height: 24.0,
                     ),
@@ -125,14 +125,14 @@ class SightCardWantVisit extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline2,
                   ),
                   Text(
-                    AppStrings.appWantVisitTime,
+                    AppStrings.visitTime,
                     style: Theme.of(context).textTheme.headline3,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
-                    AppStrings.appVisitedClose,
+                    AppStrings.visitedClose,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.bodyText1,

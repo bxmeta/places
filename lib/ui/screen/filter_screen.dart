@@ -2,10 +2,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/location.dart';
+import 'package:places/domain/place_type.dart';
+import 'package:places/domain/sight.dart';
 import 'package:places/service/utils.dart';
 import 'package:places/ui/res/app_colors.dart';
 import 'package:places/ui/res/app_icons.dart';
 import 'package:places/ui/res/app_strings.dart';
+import 'package:places/ui/screen/sight_card.dart';
+import 'package:places/ui/widget/place_type_filter.dart';
 
 import '../../mocks.dart';
 
@@ -13,13 +17,32 @@ class FilterScreen extends StatefulWidget {
   const FilterScreen({Key? key}) : super(key: key);
 
   @override
-  State<FilterScreen> createState() => _FilterScreenState();
+  State<FilterScreen> createState() => FilterScreenState();
 }
 
-class _FilterScreenState extends State<FilterScreen> {
-  final _userLocation = const Location(lat: 56.8549102, lon: 53.2220899); //пока статика
+class FilterScreenState extends State<FilterScreen> {
+  final _userLocation =
+      const Location(lat: 56.8549102, lon: 53.2220899); //пока статика
+
+  Set<String> get selectedCategories => {};
   late RangeValues _currentRangeValues = const RangeValues(100, 10000);
   int _sightCount = mocks.length;
+  List<Sight> filter = [];
+
+  void changeActiveCategory(PlaceType placeType) {
+    setState(() {
+      if (selectedCategories.contains(placeType.name)) {
+        selectedCategories.remove(placeType.name);
+      } else {
+        selectedCategories.add(placeType.name);
+      }
+      _updateFilter();
+    });
+  }
+
+  bool isActiveCategory(PlaceType placeType) =>
+      selectedCategories.contains(placeType.name);
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +53,12 @@ class _FilterScreenState extends State<FilterScreen> {
         title: Container(
           width: double.infinity,
           height: 56,
-          alignment: Alignment.center,
+          //alignment: Alignment.center,
           child: Stack(
             children: [
               Positioned(
-                top: 12,
-                left: 16,
+                top: 18,
+                left: 0,
                 child: SizedBox(
                   width: 32,
                   height: 32,
@@ -45,11 +68,11 @@ class _FilterScreenState extends State<FilterScreen> {
                         print('back');
                       }
                     },
-                    child: SvgPicture.asset(
-                      AppIcons.appIconBack,
-                      width: 32,
-                      height: 32,
-                      color: Theme.of(context).primaryColorDark,
+                    child: SizedBox(
+                      child: SvgPicture.asset(
+                        AppIcons.back,
+                        color: Theme.of(context).primaryColorDark,
+                      ),
                     ),
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
@@ -62,19 +85,22 @@ class _FilterScreenState extends State<FilterScreen> {
               Positioned(
                 top: 18,
                 right: 16,
-                child: TextButton(
-                  onPressed: () {
+                child: SizedBox(
+                  height: 32,
+                  child: TextButton(
+                    onPressed: () {
                       setState(() {
                         _currentRangeValues = RangeValues(100, 10000);
                         _sightCount = mocks.length;
                       });
-                  },
-                  child: Text(
-                    AppStrings.appClear,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline2
-                        ?.copyWith(color: AppColors.lmWantVisitTime),
+                    },
+                    child: Text(
+                      AppStrings.clear,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline2
+                          ?.copyWith(color: AppColors.lmWantVisitTime),
+                    ),
                   ),
                 ),
               ),
@@ -89,16 +115,38 @@ class _FilterScreenState extends State<FilterScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 344,
+              height: 24,
+            ),
+            Text(
+              'КАТЕГОРИИ',
+              style: Theme.of(context).textTheme.bodyText2,
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              verticalDirection: VerticalDirection.down,
+              children: placeTypes
+                  .map((item) => placeTypeFilter(
+                        placeType: item,
+                      ))
+                  .toList(),
+            ),
+            const SizedBox(
+              height: 40,
             ),
             Row(
-              children: const [
-                Expanded(
-                  child: Text(AppStrings.appDistance),
-                ),
+              children: [
                 Expanded(
                   child: Text(
-                    AppStrings.appDistanceHint,
+                    AppStrings.distance,
+                    style: Theme.of(context).textTheme.bodyText1,
+                  ),
+                ),
+                const Expanded(
+                  child: Text(
+                    AppStrings.distanceHint,
                     textAlign: TextAlign.right,
                   ),
                 ),
@@ -116,15 +164,8 @@ class _FilterScreenState extends State<FilterScreen> {
               onChanged: (values) {
                 setState(() {
                   _currentRangeValues = values;
-                  _sightCount = mocks
-                      .where((item) => Utils.isPointInRingArea(
-                            point: _userLocation,
-                            center: Location(lat: item.lat, lon: item.lon),
-                            minRadius: _currentRangeValues.start/1000,
-                            maxRadius: _currentRangeValues.end/1000,
-                          ))
-                      .toList()
-                      .length;
+                  // _updateFilter();
+                  _sightCount = filter.length;
                 });
               },
             ),
@@ -139,7 +180,8 @@ class _FilterScreenState extends State<FilterScreen> {
                     print('get directions');
                   }
                 },
-                child: Text('${AppStrings.appShow.toUpperCase()} (${_sightCount.toString()})',
+                child: Text(
+                  '${AppStrings.show.toUpperCase()} (${_sightCount.toString()})',
                   style: Theme.of(context).textTheme.button,
                 ),
                 style: ButtonStyle(
@@ -165,4 +207,19 @@ class _FilterScreenState extends State<FilterScreen> {
       ),
     );
   }
+
+  void _updateFilter() {
+    filter = mocks
+    // Фильтр по категории
+    //     .where((sight) => selectedCategories.contains(sight.name))
+    // Фильтр по расстоянию
+        .where((sight) => Utils.isPointInRingArea(
+      point: _userLocation,
+      center: Location(lat: sight.lat, lon: sight.lon),
+      minRadius: _currentRangeValues.start / 1000,
+      maxRadius: _currentRangeValues.end / 1000,
+    ))
+      .toList();
+  }
+
 }

@@ -48,7 +48,7 @@ class SightDetails extends StatelessWidget {
                     }
                   },
                   child: SvgPicture.asset(
-                    AppIcons.appIconBack,
+                    AppIcons.back,
                     width: 5.0,
                     height: 10.0,
                     color: Theme.of(context).primaryColorDark,
@@ -126,7 +126,7 @@ class SightDetails extends StatelessWidget {
                       }
                     },
                     icon: SvgPicture.asset(
-                      AppIcons.appIconGo,
+                      AppIcons.go,
                       width: 24.0,
                       height: 24.0,
                       color: Theme.of(context).primaryColor,
@@ -168,7 +168,7 @@ class SightDetails extends StatelessWidget {
                           }
                         },
                         icon: SvgPicture.asset(
-                          AppIcons.appIconCalendar,
+                          AppIcons.calendar,
                           width: 22.0,
                           height: 19.0,
                           color: Theme.of(context).shadowColor,
@@ -187,7 +187,7 @@ class SightDetails extends StatelessWidget {
                           }
                         },
                         icon: SvgPicture.asset(
-                          AppIcons.appIconHeartAdd,
+                          AppIcons.heartAdd,
                           width: 22.0,
                           height: 19.0,
                           color: Theme.of(context).shadowColor,

@@ -17,7 +17,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       toolbarHeight: height,
       title: const Text(
-        AppStrings.appTitle,
+        AppStrings.title,
         textAlign: TextAlign.left,
       ),
       elevation: 0,

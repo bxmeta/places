@@ -24,13 +24,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         titleTextStyle: Theme.of(context).textTheme.subtitle1,
-        title: Text(AppStrings.appConfig),
+        title: const Text(AppStrings.config),
         centerTitle: true,
       ),
       body:  Column(
         children: [
           ListTile(
-            title: const Text(AppStrings.appDarkTheme),
+            title: const Text(AppStrings.darkTheme),
             trailing: CupertinoSwitch(
               value: isDark,
               onChanged: (value) {
@@ -46,11 +46,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           ListTile(
-            title: const Text(AppStrings.appViewTutorial),
+            title: const Text(AppStrings.viewTutorial),
             trailing: Container(
               margin: const EdgeInsets.only(right: 16),
               child: SvgPicture.asset(
-                AppIcons.appInfo,
+                AppIcons.info,
               ),
             ),
           ),
@@ -73,25 +73,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconList,
+                AppIcons.list,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconMap,
+                AppIcons.map,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconHeartFull,
+                AppIcons.heartFull,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconSettings,
+                AppIcons.settings,
               ),
               label: '',
             ),

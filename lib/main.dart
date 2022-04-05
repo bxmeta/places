@@ -27,7 +27,7 @@ class _AppState extends State<App> {
       builder: (_, isLight, __) => MaterialApp(
         title: 'Places',
         theme: isLight ? AppThemes.lightTheme : AppThemes.darkTheme,
-        home: const SettingsScreen(),
+        home: const FilterScreen(),
       ),
     );
   }

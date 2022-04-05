@@ -40,28 +40,32 @@ class _SightListScreenState extends State<SightListScreen> {
           ],
         ),
         child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          elevation:0,
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconList,
+                AppIcons.list,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconMap,
+                AppIcons.map,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconHeartFull,
+                AppIcons.heartFull,
               ),
               label: '',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                AppIcons.appIconSettings,
+                AppIcons.settings,
               ),
               label: '',
             ),
