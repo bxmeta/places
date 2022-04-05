@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
@@ -72,7 +73,9 @@ class SightCard extends StatelessWidget {
                   top: 16,
                   child: InkWell(
                     onTap: () {
-                      print('favorit');
+                      if (kDebugMode) {
+                        print('favorit');
+                      }
                     },
                     child: SvgPicture.asset(
                       AppIcons.appIconHeartEmpty,

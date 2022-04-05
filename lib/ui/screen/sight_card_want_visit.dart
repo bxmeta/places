@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
@@ -73,7 +74,9 @@ class SightCardWantVisit extends StatelessWidget {
                   top: 16,
                   child: InkWell(
                     onTap: () {
-                      print('calendar tap');
+                      if (kDebugMode) {
+                        print('calendar tap');
+                      }
                     },
                     child: SvgPicture.asset(
                       AppIcons.appIconCalendar,
@@ -87,7 +90,9 @@ class SightCardWantVisit extends StatelessWidget {
                   top: 16,
                   child: InkWell(
                     onTap: () {
-                      print('delete tap');
+                      if (kDebugMode) {
+                        print('delete tap');
+                      }
                     },
                     child: SvgPicture.asset(
                       AppIcons.appIconHeart,

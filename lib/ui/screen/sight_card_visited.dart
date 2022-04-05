@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:places/domain/sight.dart';
@@ -73,7 +74,9 @@ class SightCardVisited extends StatelessWidget {
                   top: 16,
                   child: InkWell(
                     onTap: () {
-                      print('share');
+                      if (kDebugMode) {
+                        print('share');
+                      }
                     },
                     child: SvgPicture.asset(
                       AppIcons.appIconShare,
@@ -87,7 +90,9 @@ class SightCardVisited extends StatelessWidget {
                   top: 16,
                   child: InkWell(
                     onTap: () {
-                      print('delete');
+                      if (kDebugMode) {
+                        print('delete');
+                      }
                     },
                     child: SvgPicture.asset(
                       AppIcons.appIconHeart,
