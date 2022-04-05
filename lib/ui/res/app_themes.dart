@@ -83,6 +83,54 @@ class AppThemes {
 
     return _base.copyWith(
       brightness: Brightness.dark,
+      primaryColor: AppColors.dmBackground,
+      primaryColorDark: AppColors.dmNavIconColor,
+      // backgroundColor: AppColors.lmBackgroundMain,
+      appBarTheme: AppBarTheme(
+        centerTitle: false,
+        titleTextStyle: _textBold32.copyWith(color: AppColors.dmTitle),
+        backgroundColor: AppColors.dmBackground,
+        elevation: 0,
+      ),
+      tabBarTheme: TabBarTheme(
+        labelColor: AppColors.dmTabActive,
+        labelStyle: _textBold14,
+        unselectedLabelColor: AppColors.dmTabUnactive,
+        indicator: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(50)),
+          // Creates border
+          color: AppColors.dmTabIndicator,
+        ),
+      ),
+      scaffoldBackgroundColor: AppColors.dmBackground,
+      bottomAppBarColor: AppColors.dmSecondBackground,
+      canvasColor: AppColors.dmSecondBackground,
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: AppColors.dmSecondBackground,
+        // selectedItemColor: AppColors.lmBackground,
+        // unselectedItemColor: AppColors.lmTabIndicator,
+      ),
+      // canvasColor: AppColors.lmTabIndicator,
+      textTheme: TextTheme(
+        subtitle1: _textMiddle16.copyWith(color: AppColors.dmTitle),
+        subtitle2: _textBold14.copyWith(color: AppColors.dmCategory),
+        headline1: _textBold14.copyWith(color: AppColors.dmTitle),
+        headline2: _textRegular16.copyWith(color: AppColors.dmTitle),
+        headline3: _textRegular14.copyWith(color: AppColors.dmWantVisitTime),
+        headline4: _textBold24.copyWith(color: AppColors.dmTitle),
+        headline5: _textRegular14.copyWith(color: AppColors.dmDescription),
+        headline6: _textBold24.copyWith(color: AppColors.dmTitle),
+        bodyText1: _textMiddle14.copyWith(color: AppColors.dmDescription),
+        bodyText2: _textMiddle14.copyWith(color: AppColors.dmDescription),
+        button: _textBold14.copyWith(color: AppColors.dmBackground),
+      ),
+      shadowColor: AppColors.dmShadow,
+      elevatedButtonTheme: _baseElevatedButtonTheme,
+      sliderTheme: const SliderThemeData(
+        trackHeight: 2,
+        thumbColor: AppColors.dmBackground,
+        activeTrackColor: AppColors.dmWantVisitTime,
+      ),
     );
   }
 }
